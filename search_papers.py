@@ -175,9 +175,9 @@ def update_index():
 def git_commit_push(today: str):
     repo_dir = os.path.dirname(os.path.abspath(__file__))
     cmds = [
-        f"git -C {repo_dir} add papers/{today}.md README.md",
-        f'git -C {repo_dir} commit -m "papers: add {today} daily digest"',
-        f"git -C {repo_dir} push",
+        f"cd {repo_dir} && git add papers/{today}.md README.md",
+        f'cd {repo_dir} && git commit -m "papers: add {today} daily digest"',
+        f"cd {repo_dir} && git push",
     ]
     for cmd in cmds:
         ret = os.system(cmd)
